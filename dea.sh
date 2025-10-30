@@ -10,6 +10,15 @@ if [ $# -ne 2 ]; then usage; fi
 
 git config user.email "jenisov@gmail.com"
 git config user.name "Evgeny Denisov"
-git add $1.ipynb
+git config credential.helper manager
+
+echo -n token: 
+read -s ghtoken
+git remote set-url origin https://jenisov:${ghtoken}@github.com/jenisov/goroda
+
+#git add $1.ipynb
+git add -A
 git commit -m "$2"
-git push -u origin main:$1-pr
+
+#git push -u origin main:$1-pr
+git push -u origin main
