@@ -12,8 +12,9 @@ git config user.email "jenisov@gmail.com"
 git config user.name "Evgeny Denisov"
 git config credential.helper manager
 
-echo -n token: 
-read -s ghtoken
+read -s -p "token: " ghtoken
+echo 
+
 git remote set-url origin https://jenisov:${ghtoken}@github.com/jenisov/goroda
 
 #git add $1.ipynb
